@@ -1,0 +1,68 @@
+<div class="container">
+
+  <h2 class="mb-4">🚗 Vehicle Details</h2>
+
+  <div class="card shadow-sm">
+    <div class="row g-0">
+
+      <!-- Vehicle Image -->
+      <div class="col-md-4 text-center p-3">
+        <img
+          [src]="vehicleFormData().carImage || 'https://via.placeholder.com/300x200?text=Car+Image'"
+          class="img-fluid rounded"
+          alt="Vehicle Image"
+        />
+      </div>
+
+      <!-- Vehicle Info -->
+      <div class="col-md-8">
+        <div class="card-body">
+
+          <h4 class="card-title">
+            {{ vehicleFormData().brand }} {{ vehicleFormData().model }}
+          </h4>
+
+          <p class="card-text mb-1">
+            <strong>Registration No:</strong> {{ vehicleFormData().regNo }}
+          </p>
+
+          <p class="card-text mb-1">
+            <strong>Year:</strong> {{ vehicleFormData().year }}
+          </p>
+
+          <p class="card-text mb-1">
+            <strong>Color:</strong> {{ vehicleFormData().color }}
+          </p>
+
+          <p class="card-text mb-1">
+            <strong>Daily Rate:</strong>
+            ₹{{ vehicleFormData().dailyRate }} / day
+          </p>
+
+          <p class="card-text">
+            <strong>Status:</strong>
+            <span
+  class="badge"
+  [class.bg-success]="vehicleFormData().available"
+  [class.bg-danger]="!vehicleFormData().available"
+>
+  {{ vehicleFormData().available ? 'Available' : 'Not Available' }}
+</span>
+
+          </p>
+
+          <button class="btn btn-primary me-2">
+            Book Now
+          </button>
+
+          <button class="btn btn-outline-secondary">
+            Edit Vehicle
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

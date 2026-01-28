@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <a class="navbar-brand" routerLink="/dashboard">RentalCar</a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+    <!-- ✅ YOUR EXISTING OPTIONS (UNCHANGED) -->
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/vehicles">Vehicle</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Pricing">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/About">About</a>
+      </li>
+    </ul>
+
+    <!-- 🔍 SEARCH BAR (ADDED) -->
+    <form class="d-flex me-3" (ngSubmit)="onSearch()">
+      <input
+        class="form-control form-control-sm me-2"
+        type="search"
+        placeholder="Search vehicles..."
+        [(ngModel)]="searchTerm"
+        name="search"
+      />
+      <button class="btn btn-outline-light btn-sm" type="submit">
+        Search
+      </button>
+    </form>
+
+    <!-- LOGOUT -->
+    <button class="btn btn-outline-light btn-sm" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
