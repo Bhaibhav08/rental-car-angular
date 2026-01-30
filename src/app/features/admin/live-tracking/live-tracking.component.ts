@@ -37,44 +37,44 @@ export class LiveTrackingComponent implements OnInit, AfterViewInit, OnDestroy {
         this.vehicles = [
             {
                 id: 1,
-                model: 'Tesla Model 3',
-                licensePlate: 'ABC-1234',
-                customerName: 'John Doe',
-                lat: 40.7128,
-                lng: -74.0060,
+                model: 'Maruti Suzuki Swift',
+                licensePlate: 'DL-01-AB-1234',
+                customerName: 'Arjun Sharma',
+                lat: 28.6139,  // New Delhi
+                lng: 77.2090,
                 dailyKm: 150,
                 status: 'Moving',
                 lastUpdated: new Date()
             },
             {
                 id: 2,
-                model: 'BMW X5',
-                licensePlate: 'XYZ-9876',
-                customerName: 'Jane Smith',
-                lat: 40.7300,
-                lng: -73.9950,
+                model: 'Hyundai Creta',
+                licensePlate: 'MH-02-XY-9876',
+                customerName: 'Priya Patel',
+                lat: 19.0760,  // Mumbai
+                lng: 72.8777,
                 dailyKm: 250, // Exceeds limit
                 status: 'Moving',
                 lastUpdated: new Date()
             },
             {
                 id: 3,
-                model: 'Ford Mustang',
-                licensePlate: 'LMN-4567',
-                customerName: 'Mike Johnson',
-                lat: 40.7580,
-                lng: -73.9855,
+                model: 'Tata Nexon',
+                licensePlate: 'KA-03-LM-4567',
+                customerName: 'Rahul Verma',
+                lat: 12.9716,  // Bangalore
+                lng: 77.5946,
                 dailyKm: 45,
                 status: 'Parked',
                 lastUpdated: new Date()
             },
             {
                 id: 4,
-                model: 'Chevrolet Tahoe',
-                licensePlate: 'RST-3210',
-                customerName: 'Emily Davis',
-                lat: 40.7829,
-                lng: -73.9654,
+                model: 'Honda City',
+                licensePlate: 'MH-12-RS-3210',
+                customerName: 'Sneha Desai',
+                lat: 18.5204,  // Pune
+                lng: 73.8567,
                 dailyKm: 210, // Exceeds limit
                 status: 'Idle',
                 lastUpdated: new Date()
@@ -101,8 +101,8 @@ export class LiveTrackingComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private initMap() {
-        // Initialize map centered on NYC
-        this.map = L.map('map').setView([40.730610, -73.935242], 11);
+        // Initialize map centered on India
+        this.map = L.map('map').setView([20.5937, 78.9629], 5);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
