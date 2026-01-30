@@ -21,6 +21,10 @@ export const ADMIN_ROUTES: Routes = [
                 path: 'customers',
                 loadComponent: () => import('./customers/customer-management.component').then(m => m.CustomerManagementComponent)
             },
+            {
+                path: 'live-tracking',
+                loadComponent: () => import('./live-tracking/live-tracking.component').then(m => m.LiveTrackingComponent)
+            },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
         ]
     }

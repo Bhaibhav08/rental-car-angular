@@ -1,0 +1,86 @@
+<div class="tracking-container">
+  <!-- Sidebar for Vehicles List -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Live Tracking</h2>
+      <p class="text-muted">Real-time vehicle monitoring</p>
+    </div>
+
+    <!-- Notifications Section -->
+    <div class="notifications-section" *ngIf="notifications.length > 0">
+      <div class="notification-header">
+        <h3>Alerts</h3>
+        <span class="badge bug">{{notifications.length}}</span>
+      </div>
+      <div class="notification-list">
+        <div *ngFor="let note of notifications; let i = index" class="notification-item warning">
+          <p>{{note}}</p>
+          <button (click)="dismissNotification(i)" class="close-btn">&times;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vehicle List -->
+    <div class="vehicle-list">
+      <h3>Active Vehicles</h3>
+      <div 
+        *ngFor="let vehicle of vehicles" 
+        class="vehicle-card" 
+        [class.active]="selectedVehicle?.id === vehicle.id"
+        [class.limit-exceeded]="vehicle.dailyKm > kmLimit"
+        (click)="selectVehicle(vehicle)"
+      >
+        <div class="vehicle-info">
+          <div class="vehicle-header">
+            <h4>{{vehicle.model}}</h4>
+            <span class="status-badge" [ngClass]="vehicle.status.toLowerCase()">{{vehicle.status}}</span>
+          </div>
+          <p class="detail"><strong>Plate:</strong> {{vehicle.licensePlate}}</p>
+          <p class="detail"><strong>Customer:</strong> {{vehicle.customerName}}</p>
+          <div class="km-stat">
+            <span>Daily Usage:</span>
+            <div class="progress-bar-container">
+              <div 
+                class="progress-bar" 
+                [style.width.%]="(vehicle.dailyKm / kmLimit) * 100"
+                [class.danger]="vehicle.dailyKm > kmLimit"
+              ></div>
+            </div>
+            <span class="km-text" [class.danger-text]="vehicle.dailyKm > kmLimit">{{vehicle.dailyKm}} km / {{kmLimit}} km</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Display -->
+  <div class="map-container">
+    <div id="map"></div>
+    
+    <!-- Floating Info Panel for Selected Vehicle -->
+    <div *ngIf="selectedVehicle" class="vehicle-detail-panel">
+      <div class="panel-header">
+        <h3>{{selectedVehicle.model}}</h3>
+        <button (click)="selectedVehicle = null" class="close-panel">&times;</button>
+      </div>
+      <div class="panel-content">
+        <div class="info-row">
+          <span>Customer:</span>
+          <strong>{{selectedVehicle.customerName}}</strong>
+        </div>
+        <div class="info-row">
+          <span>Status:</span>
+          <strong>{{selectedVehicle.status}}</strong>
+        </div>
+        <div class="info-row">
+          <span>Location:</span>
+          <strong>{{selectedVehicle.lat.toFixed(4)}}, {{selectedVehicle.lng.toFixed(4)}}</strong>
+        </div>
+        <div class="info-row">
+          <span>Daily Distance:</span>
+          <strong [class.danger-text]="selectedVehicle.dailyKm > kmLimit">{{selectedVehicle.dailyKm}} km</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
