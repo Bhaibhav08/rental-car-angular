@@ -1,0 +1,65 @@
+<nav class="navbar" [class.admin-nav]="isAdmin">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <span class="logo">🚗</span>
+            <span class="brand-name">RentalCar</span>
+            <span class="role-badge" *ngIf="currentUser">{{ currentUser.role }}</span>
+        </div>
+
+        <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-menu" [class.active]="isMenuOpen">
+            <!-- Customer Navigation -->
+            <ng-container *ngIf="isCustomer">
+                <a routerLink="/customer/dashboard" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a routerLink="/customer/vehicles" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">🚗</span>
+                    <span>Browse Vehicles</span>
+                </a>
+                <a routerLink="/customer/bookings" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">📝</span>
+                    <span>My Bookings</span>
+                </a>
+                <a routerLink="/customer/profile" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </a>
+            </ng-container>
+
+            <!-- Admin Navigation -->
+            <ng-container *ngIf="isAdmin">
+                <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a routerLink="/admin/vehicles" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">🚙</span>
+                    <span>Vehicles</span>
+                </a>
+                <a routerLink="/admin/bookings" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">📋</span>
+                    <span>Bookings</span>
+                </a>
+                <a routerLink="/admin/customers" routerLinkActive="active" class="nav-link" (click)="closeMenu()">
+                    <span class="nav-icon">👥</span>
+                    <span>Customers</span>
+                </a>
+            </ng-container>
+
+            <div class="nav-user">
+                <span class="user-name" *ngIf="currentUser">{{ currentUser.fullName }}</span>
+                <button class="btn-logout" (click)="logout()">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,39 @@
+<div class="vehicle-list">
+    <div class="page-header">
+        <h1>Browse Our Fleet</h1>
+        <p>Choose from our wide selection of {{ vehicles.length }} vehicles</p>
+    </div>
+
+    <div class="container">
+        <div class="filters-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search by name or brand..." [(ngModel)]="searchQuery"
+                    (ngModelChange)="onSearchChange()" class="search-input" />
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="filter-group">
+                <label>Filter by Type:</label>
+                <select [(ngModel)]="selectedType" (ngModelChange)="onTypeChange()" class="filter-select">
+                    <option value="all">All Types</option>
+                    <option *ngFor="let type of vehicleTypes.slice(1)" [value]="type">{{ type }}</option>
+                </select>
+            </div>
+
+            <div class="results-count">
+                <strong>{{ filteredVehicles.length }}</strong> vehicles found
+            </div>
+        </div>
+
+        <div class="vehicle-grid" *ngIf="filteredVehicles.length > 0">
+            <app-vehicle-card *ngFor="let vehicle of filteredVehicles" [vehicle]="vehicle" [viewMode]="'customer'">
+            </app-vehicle-card>
+        </div>
+
+        <div class="no-results" *ngIf="filteredVehicles.length === 0">
+            <span class="no-results-icon">🚗</span>
+            <h3>No vehicles found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+        </div>
+    </div>
+</div>

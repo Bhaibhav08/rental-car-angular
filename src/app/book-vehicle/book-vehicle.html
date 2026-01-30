@@ -1,0 +1,15 @@
+<h2>Book {{ vehicle.name }}</h2>
+
+<label>From Date</label>
+<input type="date" [(ngModel)]="booking.fromDate">
+
+<label>To Date</label>
+<input type="date" [(ngModel)]="booking.toDate">
+
+<label>ID Proof</label>
+<input type="file">
+
+<label>Driving License</label>
+<input type="file">
+
+<button (click)="submitBooking()">Confirm Booking</button>

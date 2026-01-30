@@ -1,0 +1,16 @@
+.table {
+  width: 100%;
+  background: #fff;
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f9fafb;
+}

@@ -1,0 +1,59 @@
+<div class="dashboard">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome back, {{ userName }}! 👋</h1>
+            <p>Find the perfect car for your next journey</p>
+            <a routerLink="/customer/vehicles" class="btn-hero">Browse All Vehicles</a>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card">
+                <span class="card-icon">🚗</span>
+                <div class="card-text">
+                    <strong>30+</strong>
+                    <span>Vehicles Available</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <h3>Premium Fleet</h3>
+                    <p>Choose from luxury to economy cars</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Quick Booking</h3>
+                    <p>Book in just a few clicks</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Secure Payment</h3>
+                    <p>Safe and encrypted transactions</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <h3>24/7 Support</h3>
+                    <p>We're here to help anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-vehicles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Vehicles</h2>
+                <a routerLink="/customer/vehicles" class="view-all">View All →</a>
+            </div>
+
+            <div class="vehicle-grid">
+                <app-vehicle-card *ngFor="let vehicle of featuredVehicles" [vehicle]="vehicle" [viewMode]="'customer'">
+                </app-vehicle-card>
+            </div>
+        </div>
+    </section>
+</div>

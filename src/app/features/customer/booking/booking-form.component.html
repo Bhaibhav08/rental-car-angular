@@ -1,0 +1,66 @@
+<div class="booking-page" *ngIf="vehicle">
+    <div class="booking-container">
+        <h1>Complete Your Booking</h1>
+
+        <div class="booking-layout">
+            <div class="booking-form">
+                <div class="vehicle-summary">
+                    <img [src]="vehicle.imageUrl" [alt]="vehicle.name" class="vehicle-thumb" />
+                    <div>
+                        <h3>{{ vehicle.brand }} {{ vehicle.name }}</h3>
+                        <p>₹{{ vehicle.pricePerDay }}/day</p>
+                    </div>
+                </div>
+
+                <form (ngSubmit)="submitBooking()">
+                    <div class="form-group">
+                        <label for="startDate">Start Date *</label>
+                        <input id="startDate" type="date" [(ngModel)]="startDate" name="startDate"
+                            (ngModelChange)="onDateChange()" required class="form-input" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDate">End Date *</label>
+                        <input id="endDate" type="date" [(ngModel)]="endDate" name="endDate"
+                            (ngModelChange)="onDateChange()" [min]="startDate" required class="form-input" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idProof">ID Proof * (Passport/Aadhaar)</label>
+                        <input id="idProof" type="file" (change)="onFileSelect($event, 'id')" accept="image/*,.pdf"
+                            required class="file-input" />
+                        <span class="file-status" *ngIf="idProof">✓ {{ idProof.name }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="drivingLicense">Driving License *</label>
+                        <input id="drivingLicense" type="file" (change)="onFileSelect($event, 'license')"
+                            accept="image/*,.pdf" required class="file-input" />
+                        <span class="file-status" *ngIf="drivingLicense">✓ {{ drivingLicense.name }}</span>
+                    </div>
+
+                    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+                    <button type="submit" class="btn-submit">Confirm Booking</button>
+                </form>
+            </div>
+
+            <div class="booking-summary">
+                <h3>Booking Summary</h3>
+                <div class="summary-item">
+                    <span>Daily Rate:</span>
+                    <strong>₹{{ vehicle.pricePerDay }}</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Total Days:</span>
+                    <strong>{{ totalDays || 0 }}</strong>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-total">
+                    <span>Total Amount:</span>
+                    <strong>₹{{ totalAmount || 0 }}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

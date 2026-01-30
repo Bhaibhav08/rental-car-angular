@@ -1,1 +1,8 @@
-<p>dashboard works!</p>
+<h2>Dashboard</h2>
+
+<div class="cards">
+  <div class="card" *ngFor="let stat of stats">
+    <p class="label">{{ stat.label }}</p>
+    <h3>{{ stat.value }}</h3>
+  </div>
+</div>

@@ -1,37 +1,28 @@
 import { Routes } from '@angular/router';
-import { Login } from './login/login';
-import { Layout } from './layout/layout';
-import { Dashboard } from './dashboard/dashboard';
-import { Vehicles } from './vehicles/vehicles';
+import { LoginComponent } from './login/login';
+import { LandingComponent } from './features/landing/landing.component';
+import { authGuard } from './core/guards/auth.guard';
+import { adminGuard, customerGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
+  // Public routes
+  { path: '', component: LandingComponent },
+  { path: 'login', component: LoginComponent },
 
-  // 🔹 Default redirect
+  // Customer routes (protected)
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: 'customer',
+    canActivate: [authGuard, customerGuard],
+    loadChildren: () => import('./features/customer/customer.routes').then(m => m.CUSTOMER_ROUTES)
   },
 
-  // 🔹 Login page (no layout)
+  // Admin routes (protected)
   {
-    path: 'login',
-    component: Login
+    path: 'admin',
+    canActivate: [authGuard, adminGuard],
+    loadChildren: () => import('./features/admin/admin.routes').then(m => m.ADMIN_ROUTES)
   },
 
-  // 🔹 Pages with layout
-  {
-    path: '',
-    component: Layout,
-    children: [
-      {
-        path: 'dashboard',
-        component: Dashboard
-      },
-      {
-        path: 'vehicles',
-        component: Vehicles
-      }
-    ]
-  }
+  // Wildcard redirect
+  { path: '**', redirectTo: '' }
 ];

@@ -1,49 +1,82 @@
-<div class="wrapper">
-  <div class="container">
-    <div class="screen">
-      <div class="screen__content">
+<div class="login-wrapper">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1 class="logo">🚗 RentalCar</h1>
+        <p class="tagline">Your journey begins here</p>
+      </div>
 
-        <!-- ✅ formGroup added -->
-        <form class="login" [formGroup]="loginForm"(ngSubmit)="onLogin()">
+      <!-- Role Selection -->
+      <div class="role-selector">
+        <button 
+          type="button"
+          class="role-btn" 
+          [class.active]="selectedRole === UserRole.CUSTOMER"
+          (click)="selectRole(UserRole.CUSTOMER)">
+          <span class="role-icon">👤</span>
+          <span class="role-text">Customer</span>
+        </button>
+        <button 
+          type="button"
+          class="role-btn" 
+          [class.active]="selectedRole === UserRole.ADMIN"
+          (click)="selectRole(UserRole.ADMIN)">
+          <span class="role-icon">⚙️</span>
+          <span class="role-text">Admin</span>
+        </button>
+      </div>
 
-          <div class="login__field">
-            <i class="login__icon fas fa-user"></i>
-            <!-- ✅ class fixed -->
-            <input
-              type="text"
-              class="login__input"
-              formControlName="userName"
-              placeholder="User name / Email"
-            />
-          </div>
-
-          <div class="login__field">
-            <i class="login__icon fas fa-lock"></i>
-            <input
-              type="password"
-              class="login__input"
-              formControlName="password"
-              placeholder="Password"
-            />
-          </div>
-
-          <button type="submit" class="button login__submit" >
-            <span class="button__text">Log In Now</span>
-            <i class="button__icon fas fa-chevron-right"></i>
-          </button>
-
-        </form>
-
-        <div class="social-login">
-          <h3>log in via</h3>
-          <div class="social-icons">
-            <a href="#" class="social-login__icon fab fa-instagram"></a>
-            <a href="#" class="social-login__icon fab fa-facebook"></a>
-            <a href="#" class="social-login__icon fab fa-twitter"></a>
-          </div>
+      <!-- Login Form -->
+      <form class="login-form" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            class="form-input"
+            placeholder="Enter username"
+            [(ngModel)]="username"
+            name="username"
+            required
+            autocomplete="username"
+          />
         </div>
 
-      </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="form-input"
+            placeholder="Enter password"
+            [(ngModel)]="password"
+            name="password"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+
+        <div class="error-message" *ngIf="loginError">
+          {{ loginError }}
+        </div>
+
+        <button type="submit" class="btn-login">
+          <span>Sign In</span>
+          <span class="arrow">→</span>
+        </button>
+
+        <div class="demo-credentials">
+          <p class="demo-title">Demo Credentials:</p>
+          <p class="demo-item"><strong>Customer:</strong> username: <code>customer</code>, password: <code>any</code></p>
+          <p class="demo-item"><strong>Admin:</strong> username: <code>admin</code>, password: <code>any</code></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="login-background">
+      <div class="shape shape1"></div>
+      <div class="shape shape2"></div>
+      <div class="shape shape3"></div>
     </div>
   </div>
 </div>

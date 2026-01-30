@@ -1,1 +1,31 @@
-<p>bookings works!</p>
+<h2>Bookings</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Vehicle</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let booking of bookings">
+      <td>{{ booking.customer }}</td>
+      <td>{{ booking.vehicle }}</td>
+      <td>{{ booking.fromDate }}</td>
+      <td>{{ booking.toDate }}</td>
+      <td>
+        <span 
+          class="status"
+          [class.active]="booking.status === 'Active'"
+          [class.completed]="booking.status === 'Completed'"
+          [class.cancelled]="booking.status === 'Cancelled'">
+          {{ booking.status }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

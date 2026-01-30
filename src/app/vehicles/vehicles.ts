@@ -1,68 +1,37 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicles',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './vehicles.html',
-  styleUrls: ['./vehicles.css'],
+  styleUrls: ['./vehicles.css']
 })
-export class Vehicles {
+export class VehiclesComponent {
+  constructor(private router: Router) {}
+bookVehicle(_t5: { id: number; name: string; type: string; price: number; kmPerDay: number; available: boolean; }) {
+throw new Error('Method not implemented.');
+}
 
-  // Vehicle data (Signal)
-  vehicleFormData = signal({
-    carID: 1,
-    brand: 'BMW',
-    model: 'X5',
-    year: 2023,
-    color: 'Black',
-    dailyRate: 4500,
-    available: true,
-    carImage: '',
-    regNo: 'KA01AB1234'
-  });
-
-  //  API 1: Get vehicle data
-  getVehicle() {
-    return this.vehicleFormData();
+  vehicles = [
+  { id: 1, name: 'Hyundai i20', type: 'Hatchback', price: 1800, kmPerDay: 120, available: true },
+  { id: 2, name: 'Honda City', type: 'Sedan', price: 2500, kmPerDay: 150, available: false },
+  { id: 3, name: 'Creta', type: 'SUV', price: 3200, kmPerDay: 200, available: true },
+  { id: 4, name: 'Swift Dzire', type: 'Sedan', price: 2000, kmPerDay: 150, available: true },
+  { id: 5, name: 'Baleno', type: 'Hatchback', price: 1700, kmPerDay: 120, available: true },
+  { id: 6, name: 'Verna', type: 'Sedan', price: 2700, kmPerDay: 160, available: true },
+  { id: 7, name: 'Fortuner', type: 'SUV', price: 5000, kmPerDay: 250, available: false },
+  { id: 8, name: 'Brezza', type: 'SUV', price: 2800, kmPerDay: 180, available: true },
+  { id: 9, name: 'XUV 700', type: 'SUV', price: 4500, kmPerDay: 220, available: true },
+  { id: 10, name: 'Alto', type: 'Hatchback', price: 1200, kmPerDay: 100, available: true },
+  
+];
+onBook(car: any) {
+    localStorage.setItem('selectedVehicle', JSON.stringify(car));
+    this.router.navigate(['/book-vehicle']);
   }
 
-  // API 2: Update vehicle details
-  updateVehicle(updatedData: Partial<typeof this.vehicleFormData>) {
-    this.vehicleFormData.set({
-      ...this.vehicleFormData(),
-      ...updatedData
-    });
-  }
 
-  // API 3: Change availability
-  toggleAvailability() {
-    this.vehicleFormData.set({
-      ...this.vehicleFormData(),
-      available: !this.vehicleFormData().available
-    });
-  }
-
-  //  API 4: Update daily rate
-  updateRate(newRate: number) {
-    this.vehicleFormData.set({
-      ...this.vehicleFormData(),
-      dailyRate: newRate
-    });
-  }
-
-  // API 5: Reset vehicle form
-  resetVehicle() {
-    this.vehicleFormData.set({
-      carID: 0,
-      brand: '',
-      model: '',
-      year: 0,
-      color: '',
-      dailyRate: 0,
-      available: false,
-      carImage: '',
-      regNo: ''
-    });
-  }
 }

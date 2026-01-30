@@ -1,0 +1,51 @@
+<div class="vehicle-card" [class.available]="vehicle.status === 'Available'">
+    <div class="card-image" *ngIf="vehicle.imageUrl">
+        <img [src]="vehicle.imageUrl" [alt]="vehicle.name" />
+        <div class="status-badge" [class]="vehicle.status.toLowerCase()">
+            {{ vehicle.status }}
+        </div>
+    </div>
+
+    <div class="card-content">
+        <div class="vehicle-header">
+            <h3 class="vehicle-name">{{ vehicle.brand }} {{ vehicle.name }}</h3>
+            <span class="vehicle-type">{{ vehicle.type }}</span>
+        </div>
+
+        <div class="vehicle-specs">
+            <div class="spec-item">
+                <span class="spec-icon">⚙️</span>
+                <span>{{ vehicle.transmission }}</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-icon">⛽</span>
+                <span>{{ vehicle.fuelType }}</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-icon">👥</span>
+                <span>{{ vehicle.seats }} Seats</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-icon">📏</span>
+                <span>{{ vehicle.kmPerDay }}km/day</span>
+            </div>
+        </div>
+
+        <div class="vehicle-price">
+            <span class="price-label">Per Day</span>
+            <span class="price-value">₹{{ vehicle.pricePerDay }}</span>
+        </div>
+
+        <div class="card-actions" *ngIf="showActions">
+            <ng-container *ngIf="viewMode === 'customer'">
+                <a [routerLink]="['/customer/vehicles', vehicle.id]" class="btn btn-primary">
+                    View Details
+                </a>
+                <a *ngIf="vehicle.status === 'Available'" [routerLink]="['/customer/book', vehicle.id]"
+                    class="btn btn-secondary">
+                    Book Now
+                </a>
+            </ng-container>
+        </div>
+    </div>
+</div>

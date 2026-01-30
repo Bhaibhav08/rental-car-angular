@@ -1,64 +1,55 @@
-/* ===== Navbar Styling ===== */
-.navbar {
-  height: 64px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+.layout {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
-.navbar-brand {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+.sidebar {
+  width: 220px;
+  background: #1f2937;
+  color: #fff;
+  padding: 20px;
 }
 
-.navbar-nav .nav-link {
-  color: #dcdcdc;
-  font-size: 0.95rem;
-  margin-right: 10px;
-  transition: all 0.2s ease;
+.logo {
+  margin-bottom: 30px;
 }
 
-.navbar-nav .nav-link:hover {
-  color: #ffffff;
-  transform: translateY(-1px);
+.sidebar nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-bottom: 15px;
+  font-size: 15px;
 }
 
-/* Active route highlight */
-.navbar-nav .nav-link.active {
-  color: #0d6efd;
-  font-weight: 600;
+.sidebar nav a:hover {
+  color: #fff;
 }
 
-/* Logout button */
-button.btn-outline-light {
-  border-radius: 20px;
-  padding: 4px 14px;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
+.content {
+  flex: 1;
+  background: #f4f6f8;
 }
 
-button.btn-outline-light:hover {
-  background-color: #ffffff;
-  color: #000;
+.header {
+  height: 60px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #ddd;
 }
 
-/* ===== Page Content ===== */
-.container {
-  padding-top: 20px;
+.logout {
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
-/* ===== Page background ===== */
-body {
-  background-color: #f4f6f9;
-}
-
-/* ===== Responsive tweaks ===== */
-@media (max-width: 768px) {
-  .navbar-brand {
-    font-size: 1.2rem;
-  }
-
-  .navbar-nav .nav-link {
-    margin-right: 0;
-    padding: 8px 0;
-  }
+.page {
+  padding: 20px;
 }

@@ -1,26 +1,34 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterModule, FormsModule, RouterOutlet, RouterLink],
+  imports: [
+    CommonModule,      // ✅ for *ngIf
+    RouterOutlet,      // ✅ for <router-outlet>
+    RouterLink         // ✅ for routerLink
+  ],
   templateUrl: './layout.html',
   styleUrls: ['./layout.css']
 })
-export class Layout {
-  searchTerm: string = '';
+export class LayoutComponent implements OnInit {
+
+  role: string | null = null;
 
   constructor(private router: Router) {}
 
-  onSearch() {
-    this.router.navigate(['vehicles'], {
-      queryParams: { search: this.searchTerm }
-    });
+  ngOnInit() {
+    if (typeof window !== 'undefined') {
+      this.role = localStorage.getItem('role');
+    }
   }
 
   logout() {
-    this.router.navigate(['login']);
+    if (typeof window !== 'undefined') {
+      localStorage.clear();
+    }
+    this.router.navigate(['/login']);
   }
 }

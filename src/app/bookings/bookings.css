@@ -1,0 +1,39 @@
+.table {
+  width: 100%;
+  background: #fff;
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+th {
+  background: #f9fafb;
+  font-size: 14px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.completed {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}

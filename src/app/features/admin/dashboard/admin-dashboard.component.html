@@ -1,0 +1,46 @@
+<div class="admin-dashboard">
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Admin Dashboard</h1>
+            <p>Overview of your rental business</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card vehicles">
+                <div class="stat-icon">🚗</div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ stats.totalVehicles }}</div>
+                    <div class="stat-label">Total Vehicles</div>
+                    <div class="stat-detail">{{ stats.availableVehicles }} available</div>
+                </div>
+            </div>
+
+            <div class="stat-card bookings">
+                <div class="stat-icon">📝</div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ stats.totalBookings }}</div>
+                    <div class="stat-label">Total Bookings</div>
+                    <div class="stat-detail">{{ stats.activeBookings }} active</div>
+                </div>
+            </div>
+
+            <div class="stat-card customers">
+                <div class="stat-icon">👥</div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ stats.totalCustomers }}</div>
+                    <div class="stat-label">Total Customers</div>
+                    <div class="stat-detail">Registered users</div>
+                </div>
+            </div>
+
+            <div class="stat-card revenue">
+                <div class="stat-icon">💰</div>
+                <div class="stat-content">
+                    <div class="stat-value">₹{{ stats.totalRevenue | number }}</div>
+                    <div class="stat-label">Total Revenue</div>
+                    <div class="stat-detail">From all bookings</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
