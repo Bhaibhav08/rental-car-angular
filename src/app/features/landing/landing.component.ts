@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-landing',
-    standalone: true,
-    imports: [CommonModule, RouterLink],
-    template: `
+  selector: 'app-landing',
+  standalone: true,
+  imports: [CommonModule, RouterLink],
+  template: `
     <div style="min-height: 100vh; background: #ffffff;">
       <!-- Navigation Header -->
       <nav style="background: white; border-bottom: 1px solid #e5e7eb; padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
           <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
               <svg style="width: 24px; height: 24px; color: white;" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
               </svg>
@@ -22,7 +22,7 @@ import { RouterLink } from '@angular/router';
           <div style="display: flex; gap: 16px; align-items: center;">
             <a href="#features" style="color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px;">Features</a>
             <a href="#about" style="color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px;">About</a>
-            <a routerLink="/login" style="padding: 10px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s;">
+            <a routerLink="/login" style="padding: 10px 24px; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s;">
               Sign In
             </a>
           </div>
@@ -42,17 +42,17 @@ import { RouterLink } from '@angular/router';
                 Experience the freedom of the road with our premium fleet. From economy to luxury, we have the perfect vehicle for your needs.
               </p>
               <div style="display: flex; gap: 16px;">
-                <a routerLink="/login" style="padding: 16px 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
+                <a routerLink="/login" style="padding: 16px 32px; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); color: white; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); transition: all 0.3s;">
                   Get Started
                 </a>
-                <a href="#about" style="padding: 16px 32px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s;">
+                <a href="#about" style="padding: 16px 32px; background: white; color: #1f2937; border: 2px solid #1f2937; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s;">
                   Learn More
                 </a>
               </div>
             </div>
 
             <!-- Right Image/Graphic -->
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            <div style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border-radius: 20px; padding: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
               <svg style="width: 100%; max-width: 300px; height: auto; color: white;" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
               </svg>
@@ -74,7 +74,7 @@ import { RouterLink } from '@angular/router';
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
             <!-- Feature 1 -->
             <div style="padding: 32px; background: #f9fafb; border-radius: 16px; border: 1px solid #e5e7eb;">
-              <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
                 <svg style="width: 28px; height: 28px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
                 </svg>
@@ -171,15 +171,15 @@ import { RouterLink } from '@angular/router';
               </p>
               <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
                 <div>
-                  <div style="font-size: 32px; font-weight: 800; color: #667eea; margin-bottom: 8px;">30+</div>
+                  <div style="font-size: 32px; font-weight: 800; color: #1f2937; margin-bottom: 8px;">30+</div>
                   <div style="font-size: 14px; color: #6b7280; font-weight: 500;">Premium Vehicles</div>
                 </div>
                 <div>
-                  <div style="font-size: 32px; font-weight: 800; color: #667eea; margin-bottom: 8px;">5000+</div>
+                  <div style="font-size: 32px; font-weight: 800; color: #1f2937; margin-bottom: 8px;">5000+</div>
                   <div style="font-size: 14px; color: #6b7280; font-weight: 500;">Happy Customers</div>
                 </div>
                 <div>
-                  <div style="font-size: 32px; font-weight: 800; color: #667eea; margin-bottom: 8px;">10+</div>
+                  <div style="font-size: 32px; font-weight: 800; color: #1f2937; margin-bottom: 8px;">10+</div>
                   <div style="font-size: 14px; color: #6b7280; font-weight: 500;">Years Experience</div>
                 </div>
               </div>
@@ -204,13 +204,13 @@ import { RouterLink } from '@angular/router';
       </section>
 
       <!-- CTA Section -->
-      <section style="padding: 80px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+      <section style="padding: 80px 24px; background: linear-gradient(135deg, #1f2937 0%, #111827 100%);">
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
           <h2 style="font-size: 36px; font-weight: 800; color: white; margin: 0 0 16px 0;">Ready to Start Your Journey?</h2>
           <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin: 0 0 32px 0;">
             Join thousands of satisfied customers. Sign in now to browse our fleet and book your perfect vehicle.
           </p>
-          <a routerLink="/login" style="padding: 16px 48px; background: white; color: #667eea; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 18px; display: inline-block; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: all 0.3s;">
+          <a routerLink="/login" style="padding: 16px 48px; background: white; color: #1f2937; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 18px; display: inline-block; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: all 0.3s;">
             Sign In / Sign Up
           </a>
         </div>
@@ -266,6 +266,6 @@ import { RouterLink } from '@angular/router';
       </footer>
     </div>
   `,
-    styles: []
+  styles: []
 })
 export class LandingComponent { }

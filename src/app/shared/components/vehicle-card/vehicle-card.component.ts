@@ -122,15 +122,8 @@ export class VehicleCardComponent {
   }
 
   getGradient(): string {
-    const gradients: Record<string, string> = {
-      'Sedan': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      'SUV': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      'Hatchback': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      'Luxury': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      'Electric': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      'MUV': 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
-    };
-    return gradients[this.vehicle.type] || gradients['Sedan'];
+    // Using same black gradient for all vehicle types
+    return 'linear-gradient(135deg, #1f2937 0%, #111827 100%)';
   }
 
   getStatusBadgeStyle(): string {
