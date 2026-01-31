@@ -27,5 +27,10 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'admin/**',
     renderMode: RenderMode.Client
+  },
+  // Fallback for wildcard/404 routes (REQUIRED by Angular SSR)
+  {
+    path: '**',
+    renderMode: RenderMode.Prerender
   }
 ];
